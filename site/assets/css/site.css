@@ -147,6 +147,7 @@ footer{padding:24px 0 30px;border-top:1px solid rgba(113,21,61,.11);background:#
 .chat-verification.active{display:block}
 .chat-verification p{font-size:10px;color:#795f69;margin:0 0 7px}
 .chat-loading{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--wine);margin-right:6px;animation:pulse 1s infinite ease-in-out}
+.connection-chat-card{padding:28px}.inline-chat{display:flex;flex-direction:column;gap:10px;margin:18px 0}.inline-bubble{max-width:92%;padding:12px 14px;border-radius:15px;font-size:13px;line-height:1.5;white-space:pre-wrap}.inline-bubble.assistant{align-self:flex-start;background:#f4e7e9;color:#4d2635;border-bottom-left-radius:5px}.inline-chat-form{display:grid;grid-template-columns:1fr 44px;gap:8px}.inline-chat-form input{min-width:0;height:46px;border:1px solid rgba(113,21,61,.16);border-radius:12px;padding:0 13px;outline:0;font:inherit}.inline-chat-form input:focus{border-color:var(--wine);box-shadow:0 0 0 3px rgba(113,21,61,.08)}.inline-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.inline-suggestions button{border:1px solid rgba(113,21,61,.14);background:#fff;color:var(--wine);border-radius:999px;padding:7px 10px;font-size:10px;font-weight:700;cursor:pointer}.inline-suggestions button:hover{background:#f7e8ec}
 @keyframes pulse{50%{opacity:.25;transform:scale(.7)}}
 
 .privacy-note{margin-top:18px;padding:16px 18px;border-radius:14px;background:#f7e8ec;color:#704b5c;font-size:12px;border:1px solid rgba(113,21,61,.08)}

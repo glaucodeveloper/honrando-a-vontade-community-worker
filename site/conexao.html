@@ -45,15 +45,18 @@
 </div>
 <div class="privacy-note"><strong>Publicação com consentimento.</strong> Nome de exibição, foto e informações do perfil só entram em <em>Colaboradoras</em> depois de autorização explícita no chat e aprovação da organização.</div>
 </div>
-<div class="form-card reveal">
-<div class="section-label">Iniciar entrevista</div><h3>Abra a conversa com contexto</h3>
-<form id="connectionForm">
-<div class="field"><label for="name">Como podemos chamar você?</label><input id="name" name="name" autocomplete="name" placeholder="Nome ou nome de exibição"></div>
-<div class="field"><label for="interest">Interesse inicial</label><select id="interest" name="interest"><option value="conhecer o projeto">Quero conhecer o projeto</option><option>escrever e desenvolver minha produção literária</option><option>participar de leituras e clubes de leitura</option><option>participar de saraus, encontros e atividades culturais</option><option>colaborar com antologias ou projetos culturais</option></select></div>
-<div class="field"><label for="message">O que você busca?</label><textarea id="message" name="message" placeholder="Conte brevemente o que escreve, lê ou procura na comunidade."></textarea></div>
-<button class="btn btn-primary" type="submit">Iniciar entrevista no chat →</button>
-<div id="connectionNotice" class="notice">O chat foi aberto. A partir daí, o Worker conduz o registro por etapas.</div>
+<div class="form-card connection-chat-card reveal">
+<div class="section-label">Entrevista no chat</div><h3>A conversa já começou</h3>
+<div class="inline-chat" aria-live="polite">
+<div class="inline-bubble assistant">Olá. Eu sou a assistente da comunidade. Vou conhecer sua escrita, suas leituras e o que você deseja desenvolver por aqui.</div>
+<div class="inline-bubble assistant">Para começar, como você quer ser chamada?</div>
+</div>
+<form id="connectionForm" class="inline-chat-form">
+<input id="name" name="name" autocomplete="name" placeholder="Escreva seu nome ou nome literário" aria-label="Nome ou nome de exibição" required>
+<button class="chat-send" type="submit" aria-label="Enviar nome">➤</button>
 </form>
+<div class="inline-suggestions"><button type="button" data-prefill="Quero escrever e desenvolver minha produção literária">Quero escrever</button><button type="button" data-prefill="Quero participar das leituras e atividades">Quero participar</button></div>
+<div id="connectionNotice" class="notice">Sua resposta será enviada ao chat, e o Worker seguirá a entrevista por etapas.</div>
 </div></div></section>
 
 <section class="section"><div class="container">
@@ -61,7 +64,7 @@
 <p class="intro">O cadastro não publica ninguém automaticamente. Ele cria uma trajetória de entrada com revisão humana antes do perfil aparecer no site.</p>
 <div class="community-flow">
 <div class="flow-step reveal"><b>1</b><h3>Entrevista de estilo</h3><p>O chat pergunta gêneros, linguagem, objetivos de escrita e preferências de leitura.</p></div>
-<div class="flow-step reveal"><b>2</b><h3>Foto pelo chat</h3><p>A participante envia JPEG, PNG ou WebP. O Worker guarda o arquivo no R2.</p></div>
+<div class="flow-step reveal"><b>2</b><h3>Foto pelo chat</h3><p>A participante envia JPEG, PNG ou WebP. O Worker guarda o arquivo no repositório público.</p></div>
 <div class="flow-step reveal"><b>3</b><h3>Consentimento</h3><p>Antes da publicação, o chat solicita autorização explícita para exibir o perfil.</p></div>
 <div class="flow-step reveal"><b>4</b><h3>Aprovação</h3><p>O registro fica pendente até a organização aprovar. Só então aparece em Colaboradoras.</p></div>
 </div></div></section>
@@ -81,4 +84,18 @@
 <div class="footer-bottom"><span>© <span id="year"></span> Honrando a Vontade.</span><span>Escrita, leitura, criação e encontro.</span></div>
 </div></footer>
 <script src="assets/js/config.js"></script><script src="assets/js/site.js"></script><script src="assets/js/chat.js"></script>
+<script>
+  document.querySelector('#connectionForm').addEventListener('submit', event => {
+    event.preventDefault();
+    const name = document.querySelector('#name').value.trim();
+    if (!name || !window.HonrandoChat) return;
+    window.HonrandoChat.startCommunity(name);
+    document.querySelector('#connectionNotice').textContent = 'A entrevista foi aberta no chat. Continue por lá para registrar seu perfil.';
+  });
+  document.querySelectorAll('[data-prefill]').forEach(button => button.addEventListener('click', () => {
+    const input = document.querySelector('#name');
+    input.value = button.dataset.prefill;
+    input.focus();
+  }));
+</script>
 </body></html>
