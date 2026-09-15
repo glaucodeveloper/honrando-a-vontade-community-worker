@@ -1,0 +1,30 @@
+{
+  "project": "Honrando a Vontade",
+  "architecture": "GitHub Pages + Cloudflare Worker + D1 + R2 + Workers AI + optional Turnstile",
+  "public_pages": [
+    "site/index.html",
+    "site/instituicao.html",
+    "site/atividades.html",
+    "site/agenda.html",
+    "site/colaboradoras.html",
+    "site/conexao.html",
+    "site/contato.html"
+  ],
+  "worker_endpoints": [
+    "GET /health",
+    "POST /api/chat",
+    "POST /api/community/start",
+    "POST /api/community/message",
+    "POST /api/community/photo",
+    "GET /api/collaborators",
+    "GET /api/agenda",
+    "GET /media/:key",
+    "GET /api/admin/members",
+    "POST /api/admin/members/:id/approve",
+    "POST /api/admin/members/:id/reject",
+    "POST /api/admin/events",
+    "DELETE /api/admin/events/:id",
+    "POST /api/admin/readings",
+    "DELETE /api/admin/readings/:id"
+  ]
+}

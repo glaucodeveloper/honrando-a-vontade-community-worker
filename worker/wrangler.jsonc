@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "honrando-a-vontade-community",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+
+  "ai": {
+    "binding": "AI"
+  },
+
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "honrando-community",
+      "database_id": "9adb3bfd-d43c-44e7-9bda-3e09ed205e06"
+    }
+  ],
+
+  "r2_buckets": [
+    {
+      "binding": "PHOTOS",
+      "bucket_name": "honrando-community-photos"
+    }
+  ],
+
+  "vars": {
+    "AI_MODEL": "@cf/meta/llama-3.1-8b-instruct-fast",
+    "ALLOWED_ORIGINS": "https://glaucodeveloper.github.io"
+  }
+}

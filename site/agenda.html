@@ -1,0 +1,39 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#71153d">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css"><title>Agenda — Honrando a Vontade</title>
+<meta name="description" content="Agenda pública de encontros, oficinas, saraus, lançamentos e atividades."></head><body>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="index.html"><img src="assets/img/logo.png" alt="Honrando a Vontade"></a>
+<button class="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<nav class="navlinks">
+<a href="index.html">Início</a>
+<a href="instituicao.html">Instituição</a>
+<a href="atividades.html">Atividades</a>
+<a href="agenda.html">Agenda</a>
+<a href="colaboradoras.html">Colaboradoras</a>
+<a href="conexao.html">Conexão</a>
+<a href="contato.html">Contato</a>
+<a class="cta" href="conexao.html">Participe</a>
+</nav></div></header>
+<main>
+<section class="page-hero"><div class="container reveal"><div class="breadcrumbs"><a href="index.html">Início</a><span>•</span><b>Agenda</b></div>
+<div class="eyebrow" style="margin-top:22px">Atividades publicadas</div><h1>Encontros, oficinas, saraus e lançamentos em uma agenda consultada pelo próprio chat.</h1>
+<p class="lead">O Worker é a fonte da agenda. Esta página e a conversa usam o mesmo conjunto de atividades publicadas pela organização.</p></div></section>
+<section class="section alt"><div class="container">
+<div class="public-toolbar"><div><div class="section-label">Próximos encontros</div><h2 style="margin-bottom:0">Agenda</h2></div><div id="agendaStatus" class="public-status">Carregando agenda...</div></div>
+<div id="agendaList" class="agenda-list"></div>
+</div></section>
+<section class="section"><div class="container split"><div class="reveal"><div class="section-label">Pergunte pelo chat</div><h2>“Qual é a próxima atividade?”</h2><p class="intro">O chat consulta os mesmos registros da agenda. Quando não houver atividade publicada, ele informa isso sem inventar datas.</p><div class="actions"><button class="btn btn-primary" onclick="HonrandoChat.open('Qual é a próxima atividade do projeto?')">Perguntar agora →</button></div></div><div class="quote reveal">Agenda publicada é informação; agenda ausente não vira suposição.</div></div></section>
+</main>
+<footer><div class="container">
+<div class="footer-top">
+<a href="index.html"><img src="assets/img/logo.png" alt="Honrando a Vontade"></a>
+<nav class="footer-nav"><a href="instituicao.html">Instituição</a><a href="atividades.html">Atividades</a><a href="agenda.html">Agenda</a><a href="colaboradoras.html">Colaboradoras</a><a href="conexao.html">Conexão</a><a href="contato.html">Contato</a></nav>
+<a class="btn btn-secondary" href="conexao.html">Entrar na comunidade</a>
+</div>
+<div class="footer-bottom"><span>© <span id="year"></span> Honrando a Vontade.</span><span>Escrita, leitura, criação e encontro.</span></div>
+</div></footer>
+<script src="assets/js/config.js"></script><script src="assets/js/site.js"></script><script src="assets/js/chat.js"></script><script src="assets/js/agenda.js"></script>
+</body></html>

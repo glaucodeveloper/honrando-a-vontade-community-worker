@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#71153d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+<title>Conexão — Honrando a Vontade</title>
+<meta name="description" content="Escolha como se conectar ao Honrando a Vontade e converse pelo chat integrado.">
+</head><body>
+
+<header class="topbar"><div class="container nav">
+<a class="brand" href="index.html"><img src="assets/img/logo.png" alt="Honrando a Vontade"></a>
+<button class="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+<nav class="navlinks">
+<a href="index.html">Início</a>
+<a href="instituicao.html">Instituição</a>
+<a href="atividades.html">Atividades</a>
+<a href="agenda.html">Agenda</a>
+<a href="colaboradoras.html">Colaboradoras</a>
+<a href="conexao.html">Conexão</a>
+<a href="contato.html">Contato</a>
+<a class="cta" href="conexao.html">Participe</a>
+</nav></div></header>
+
+<main>
+<section class="page-hero"><div class="container reveal">
+<div class="breadcrumbs"><a href="index.html">Início</a><span>•</span><b>Conexão</b></div>
+<div class="eyebrow" style="margin-top:22px">Entrada da comunidade</div>
+<h1>O Worker conduz a chegada: conhece sua escrita, recebe sua foto e prepara seu perfil.</h1>
+<p class="lead">A entrada acontece pelo chat. A entrevista identifica interesses de escrita e leitura, registra um perfil para revisão e pode orientar a participante pela agenda e por caminhos de leitura.</p>
+</div></section>
+
+<section class="section alt"><div class="container connection-grid">
+<div class="reveal">
+<div class="section-label">Seu ponto de entrada</div><h2>Comece pelo que você procura</h2>
+<div class="choice-grid">
+<button type="button" class="choice" data-choice="escrever e desenvolver minha produção literária"><strong>Quero escrever</strong><small>Desenvolver textos, voz, estilo e processos de criação.</small></button>
+<button type="button" class="choice" data-choice="participar de leituras e clubes de leitura"><strong>Quero ler</strong><small>Receber orientação e se aproximar de leituras e conversas.</small></button>
+<button type="button" class="choice" data-choice="participar de saraus, encontros e atividades culturais"><strong>Quero participar</strong><small>Conhecer a agenda e entrar em atividades culturais.</small></button>
+<button type="button" class="choice" data-choice="colaborar com antologias ou projetos culturais"><strong>Quero colaborar</strong><small>Somar em antologias, projetos e iniciativas da comunidade.</small></button>
+</div>
+<div class="privacy-note"><strong>Publicação com consentimento.</strong> Nome de exibição, foto e informações do perfil só entram em <em>Colaboradoras</em> depois de autorização explícita no chat e aprovação da organização.</div>
+</div>
+<div class="form-card reveal">
+<div class="section-label">Iniciar entrevista</div><h3>Abra a conversa com contexto</h3>
+<form id="connectionForm">
+<div class="field"><label for="name">Como podemos chamar você?</label><input id="name" name="name" autocomplete="name" placeholder="Nome ou nome de exibição"></div>
+<div class="field"><label for="interest">Interesse inicial</label><select id="interest" name="interest"><option value="conhecer o projeto">Quero conhecer o projeto</option><option>escrever e desenvolver minha produção literária</option><option>participar de leituras e clubes de leitura</option><option>participar de saraus, encontros e atividades culturais</option><option>colaborar com antologias ou projetos culturais</option></select></div>
+<div class="field"><label for="message">O que você busca?</label><textarea id="message" name="message" placeholder="Conte brevemente o que escreve, lê ou procura na comunidade."></textarea></div>
+<button class="btn btn-primary" type="submit">Iniciar entrevista no chat →</button>
+<div id="connectionNotice" class="notice">O chat foi aberto. A partir daí, o Worker conduz o registro por etapas.</div>
+</form>
+</div></div></section>
+
+<section class="section"><div class="container">
+<div class="section-label">Fluxo de entrada</div><h2>Da primeira conversa ao perfil público</h2>
+<p class="intro">O cadastro não publica ninguém automaticamente. Ele cria uma trajetória de entrada com revisão humana antes do perfil aparecer no site.</p>
+<div class="community-flow">
+<div class="flow-step reveal"><b>1</b><h3>Entrevista de estilo</h3><p>O chat pergunta gêneros, linguagem, objetivos de escrita e preferências de leitura.</p></div>
+<div class="flow-step reveal"><b>2</b><h3>Foto pelo chat</h3><p>A participante envia JPEG, PNG ou WebP. O Worker guarda o arquivo no R2.</p></div>
+<div class="flow-step reveal"><b>3</b><h3>Consentimento</h3><p>Antes da publicação, o chat solicita autorização explícita para exibir o perfil.</p></div>
+<div class="flow-step reveal"><b>4</b><h3>Aprovação</h3><p>O registro fica pendente até a organização aprovar. Só então aparece em Colaboradoras.</p></div>
+</div></div></section>
+
+<section class="section alt"><div class="container split">
+<div class="reveal"><div class="section-label">Durante e depois da entrada</div><h2>Agenda e orientação de leitura no mesmo canal</h2><p class="intro">Depois de conhecer o perfil, o Worker pode consultar atividades publicadas na agenda e usar preferências de leitura e estilo para orientar a participante. Se houver um catálogo de leituras cadastrado pela organização, as recomendações priorizam esse catálogo.</p></div>
+<div class="quote reveal">A conversa passa a ser uma porta de entrada contínua, não um formulário isolado.</div>
+</div></section>
+</main>
+
+<footer><div class="container">
+<div class="footer-top">
+<a href="index.html"><img src="assets/img/logo.png" alt="Honrando a Vontade"></a>
+<nav class="footer-nav"><a href="instituicao.html">Instituição</a><a href="atividades.html">Atividades</a><a href="agenda.html">Agenda</a><a href="colaboradoras.html">Colaboradoras</a><a href="conexao.html">Conexão</a><a href="contato.html">Contato</a></nav>
+<a class="btn btn-secondary" href="conexao.html">Entrar na comunidade</a>
+</div>
+<div class="footer-bottom"><span>© <span id="year"></span> Honrando a Vontade.</span><span>Escrita, leitura, criação e encontro.</span></div>
+</div></footer>
+<script src="assets/js/config.js"></script><script src="assets/js/site.js"></script><script src="assets/js/chat.js"></script>
+</body></html>
