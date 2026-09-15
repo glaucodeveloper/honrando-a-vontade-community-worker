@@ -23,29 +23,13 @@
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   const choices = document.querySelectorAll('.choice[data-choice]');
-  const interest = document.getElementById('interest');
   choices.forEach(c => c.addEventListener('click', () => {
     choices.forEach(x => x.classList.remove('selected'));
     c.classList.add('selected');
-    if(interest) interest.value = c.dataset.choice;
+    const desire = `Quero me integrar à comunidade com interesse em ${c.dataset.choice}. Como posso começar?`;
+    window.HonrandoChat?.open();
+    window.HonrandoChat?.send(desire, 'community-intent');
   }));
-
-  const connectionForm = document.getElementById('connectionForm');
-  connectionForm?.addEventListener('submit', async e => {
-    e.preventDefault();
-    const fd = new FormData(connectionForm);
-    const name = (fd.get('name') || '').trim();
-    const interestText = fd.get('interest') || 'conhecer o projeto';
-    const msg = (fd.get('message') || '').trim();
-    const prefill = [
-      name ? `Pode me chamar de ${name}.` : '',
-      `Quero entrar na comunidade com interesse em ${interestText}.`,
-      msg
-    ].filter(Boolean).join(' ');
-
-    document.getElementById('connectionNotice').style.display='block';
-    await window.HonrandoChat?.startCommunity(prefill);
-  });
 
   document.querySelectorAll('[data-open-community]').forEach(el => {
     el.addEventListener('click', e => {

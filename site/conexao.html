@@ -55,7 +55,7 @@
 <input id="name" name="name" autocomplete="name" placeholder="Escreva seu nome ou nome literário" aria-label="Nome ou nome de exibição" required>
 <button class="chat-send" type="submit" aria-label="Enviar nome">➤</button>
 </form>
-<div class="inline-suggestions"><button type="button" data-prefill="Quero escrever e desenvolver minha produção literária">Quero escrever</button><button type="button" data-prefill="Quero participar das leituras e atividades">Quero participar</button></div>
+<div class="inline-suggestions"><button type="button" data-intent="Quero escrever e desenvolver minha produção literária">Quero escrever</button><button type="button" data-intent="Quero participar das leituras e atividades">Quero participar</button></div>
 <div id="connectionNotice" class="notice">Sua resposta será enviada ao chat, e o Worker seguirá a entrevista por etapas.</div>
 </div></div></section>
 
@@ -92,10 +92,10 @@
     window.HonrandoChat.startCommunity(name);
     document.querySelector('#connectionNotice').textContent = 'A entrevista foi aberta no chat. Continue por lá para registrar seu perfil.';
   });
-  document.querySelectorAll('[data-prefill]').forEach(button => button.addEventListener('click', () => {
-    const input = document.querySelector('#name');
-    input.value = button.dataset.prefill;
-    input.focus();
+  document.querySelectorAll('[data-intent]').forEach(button => button.addEventListener('click', () => {
+    const desire = `${button.dataset.intent}. Como posso me integrar à rede?`;
+    window.HonrandoChat?.open();
+    window.HonrandoChat?.send(desire, 'community-intent');
   }));
 </script>
 </body></html>

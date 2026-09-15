@@ -319,9 +319,10 @@ estilo=${found.member.writing_style||''}
 objetivos=${found.member.goals||''}
 leituras=${found.member.reading_preferences||''}`:'';
   const page=body?.page?.title?`\nPágina atual: ${clamp(body.page.title,140)}`:'';
+  const integration= intent==='community-intent' ? '\nA visitante declarou uma vontade de integração. Oriente o próximo passo de forma concreta e acolhedora, conectando essa vontade às formas de participação do projeto. Não invente datas, grupos, contatos ou links.' : '';
   try{
     const answer=await callAI(env,[
-      {role:'system',content:PROJECT_CONTEXT+profile+page},
+      {role:'system',content:PROJECT_CONTEXT+profile+page+integration},
       ...cleanHistory,
       {role:'user',content:message}
     ],520,.5);
