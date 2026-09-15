@@ -16,15 +16,12 @@
     }
   ],
 
-  "r2_buckets": [
-    {
-      "binding": "PHOTOS",
-      "bucket_name": "honrando-community-photos"
-    }
-  ],
-
   "vars": {
     "AI_MODEL": "@cf/meta/llama-3.1-8b-instruct-fast",
-    "ALLOWED_ORIGINS": "https://glaucodeveloper.github.io"
+    "ALLOWED_ORIGINS": "https://glaucodeveloper.github.io",
+    "GITHUB_OWNER": "glaucodeveloper",
+    "GITHUB_REPO": "honrando-a-vontade-community-worker",
+    "GITHUB_BRANCH": "main",
+    "PUBLIC_SITE_BASE": "https://glaucodeveloper.github.io/honrando-a-vontade-community-worker"
   }
 }

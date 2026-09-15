@@ -11,7 +11,7 @@ Cloudflare Worker ─────────────── Workers AI
    │
    ├── D1: membros, entrevista, agenda, catálogo de leitura
    │
-   └── R2: fotos enviadas no chat
+   └── GitHub Contents API: fotos públicas enviadas no chat em `site/media/`
 
 Colaboradoras.html
    │
@@ -37,7 +37,7 @@ Porta de entrada e decisão:
 ### D1
 Dados estruturados.
 
-### R2
+### Fotos públicas no GitHub
 Arquivos de foto. O bucket não precisa ser público: o Worker serve `/media/...`.
 
 ### Workers AI

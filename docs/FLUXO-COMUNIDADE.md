@@ -39,7 +39,7 @@ Aceitos:
 - WebP
 - máximo 5 MiB
 
-O arquivo fica no R2.
+O arquivo é gravado em `site/media/collaborators/` no repositório público via GitHub Contents API.
 
 ## Consentimento
 

@@ -24,13 +24,17 @@ Aplique a migração:
 npx wrangler d1 execute honrando-community --remote --file=./migrations/0001_schema.sql
 ```
 
-## 3. Criar R2
+## 3. Configurar armazenamento público no GitHub
+
+Crie um token fine-grained do GitHub com permissão `Contents: Read and write`
+somente para este repositório e grave-o como secret do Worker:
 
 ```bash
-npx wrangler r2 bucket create honrando-community-photos
+npx wrangler secret put GITHUB_TOKEN
 ```
 
-O binding esperado no Worker é `PHOTOS`.
+As fotos são gravadas em `site/media/collaborators/` e ficam públicas após o deploy
+do GitHub Pages. Não use esta configuração para fotos que precisem permanecer privadas.
 
 ## 4. Segredo administrativo
 

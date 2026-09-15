@@ -31,7 +31,7 @@ O workflow usa:
 
 GitHub Pages é estático. Por isso:
 - registros ficam no D1;
-- fotos ficam no R2;
+- fotos públicas ficam em `site/media/` no repositório;
 - agenda fica no D1;
 - chat e entrevista rodam no Worker.
 

@@ -1,6 +1,6 @@
 {
   "project": "Honrando a Vontade",
-  "architecture": "GitHub Pages + Cloudflare Worker + D1 + R2 + Workers AI + optional Turnstile",
+  "architecture": "GitHub Pages + Cloudflare Worker + D1 + public GitHub media + Workers AI + optional Turnstile",
   "public_pages": [
     "site/index.html",
     "site/instituicao.html",

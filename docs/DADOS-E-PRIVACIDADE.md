@@ -34,7 +34,7 @@ A API pública retorna apenas:
 
 ## Foto
 
-A foto é armazenada em R2 e servida pelo Worker.
+A foto é gravada no repositório público e servida pelo GitHub Pages após o envio.
 O bucket pode permanecer privado.
 
 ## Conversa

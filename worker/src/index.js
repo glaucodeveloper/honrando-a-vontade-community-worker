@@ -250,11 +250,22 @@ async function communityPhoto(request,env,headers){
   if(file.size>max) return json({error:'A foto deve ter no máximo 5 MiB.'},413,headers);
 
   const ext=file.type==='image/jpeg'?'jpg':file.type==='image/png'?'png':'webp';
-  const key=`collaborators/${found.member.id}.${ext}`;
-  await env.PHOTOS.put(key,file.stream(),{
-    httpMetadata:{contentType:file.type,cacheControl:'public, max-age=3600'},
-    customMetadata:{member_id:found.member.id}
-  });
+  const key=`media/collaborators/${found.member.id}.${ext}`;
+  const repoPath=`site/${key}`;
+  if(!env.GITHUB_TOKEN || !env.GITHUB_OWNER || !env.GITHUB_REPO){
+    return json({error:'Armazenamento do repositório não está configurado.'},503,headers);
+  }
+  const bytes=new Uint8Array(await file.arrayBuffer());
+  let binary='';
+  const chunkSize=0x8000;
+  for(let i=0;i<bytes.length;i+=chunkSize) binary+=String.fromCharCode(...bytes.subarray(i,i+chunkSize));
+  const content=btoa(binary);
+  const api=`https://api.github.com/repos/${encodeURIComponent(env.GITHUB_OWNER)}/${encodeURIComponent(env.GITHUB_REPO)}/contents/${repoPath.split('/').map(encodeURIComponent).join('/')}`;
+  const authHeaders={Authorization:`Bearer ${env.GITHUB_TOKEN}`,'User-Agent':'honrando-a-vontade-worker','Accept':'application/vnd.github+json','Content-Type':'application/json'};
+  const existing=await fetch(api,{headers:authHeaders});
+  const existingData=existing.ok?await existing.json().catch(()=>null):null;
+  const upload=await fetch(api,{method:'PUT',headers:authHeaders,body:JSON.stringify({message:`chore: store community photo ${found.member.id}`,content,branch:env.GITHUB_BRANCH||'main',...(existingData?.sha?{sha:existingData.sha}:{})})});
+  if(!upload.ok) return json({error:'Não foi possível armazenar a foto no repositório.'},502,headers);
   await env.DB.prepare("UPDATE members SET photo_key=?,updated_at=CURRENT_TIMESTAMP WHERE id=?").bind(key,found.member.id).run();
 
   let next=found.session.stage;
@@ -272,7 +283,7 @@ async function publicCollaborators(request,env,headers){
   ).all();
   const collaborators=results.map(x=>({
     id:x.id,display_name:x.display_name,city:x.city,writing_genres:x.writing_genres,bio:x.bio,style_summary:x.style_summary,
-    photo_url:`${url.origin}/media/${encodeURIComponent(x.photo_key)}`
+    photo_url:`${String(env.PUBLIC_SITE_BASE||url.origin).replace(/\/$/,'')}/${x.photo_key.split('/').map(encodeURIComponent).join('/')}`
   }));
   return json({collaborators},200,headers);
 }
@@ -280,12 +291,9 @@ async function media(request,env,headers){
   const url=new URL(request.url);
   const encoded=url.pathname.slice('/media/'.length);
   let key;try{key=decodeURIComponent(encoded)}catch{return new Response('Bad key',{status:400,headers})}
-  if(!key.startsWith('collaborators/')) return new Response('Not found',{status:404,headers});
-  const obj=await env.PHOTOS.get(key);
-  if(!obj) return new Response('Not found',{status:404,headers});
-  const h=new Headers(headers);
-  obj.writeHttpMetadata(h);h.set('etag',obj.httpEtag);h.set('Cache-Control','public, max-age=3600');
-  return new Response(obj.body,{headers:h});
+  if(!key.startsWith('media/collaborators/')) return new Response('Not found',{status:404,headers});
+  const target=`${String(env.PUBLIC_SITE_BASE||'').replace(/\/$/,'')}/${key.split('/').map(encodeURIComponent).join('/')}`;
+  return Response.redirect(target,302);
 }
 async function chat(request,env,headers){
   const body=await parseJSON(request);
